@@ -25,7 +25,7 @@ public class StudentService {
 	
 	//List studentList = new ArrayList();
 	private List<Student> studentList = new ArrayList<Student>();//제네릭스 사용문
-	//List<Student> studentList = new LinkedList<Student>(); : LInkedList :추가 수정 삭제에 사용
+	//List<Student> studentList = new LinkedList<Student>(); : LinkedList :추가 수정 삭제에 사용
 	//Student로 저장되는 타입이 제한된 리스트를 생성한것
 	//앞으로 
 	
@@ -84,7 +84,7 @@ public class StudentService {
 	public void displayMenu() {
 		int menuNum = 0;
 		
-		do {
+		do {//do whlie 문으로 0번을 누를때 까지 반복하는 프로그램 작성
 			System.out.println("\n========== 학생관리 프로그램 =========\n");
 			System.out.println("1. 학생 정보 추가");
 			System.out.println("2. 학생 전체 조회");
@@ -115,7 +115,7 @@ public class StudentService {
 				
 				
 				
-			} catch(InputMismatchException e) {
+			} catch(InputMismatchException e) {//위 try구문 뿐만이 아니라 throws로 던져진 오류들을 모두 여기에 받는다
 				
 				System.out.println("\n잘못된 입력,다시 입력");
 				sc.nextLine();// 입력 버퍼에 남아있느 잘못 입력된 문자열 제거용
@@ -160,7 +160,7 @@ public class StudentService {
 		int score = sc.nextInt();
 		
 		// Student 객체 생성후 List 추가 
-		if(studentList.add(new Student(name, age, region, gender, score)) ) {
+		if(studentList.add(new Student(name, age, region, gender, score)) ) {//입력된 정보들 추가
 			return "성공";
 		} else {
 			return "실패";
@@ -207,8 +207,9 @@ public class StudentService {
 		// for(컬렉션 or 배열에서 꺼낸 한개의 요소를 저장할 변수 : 컬랙션 명 또는 배열명) {} 
 		int index = 0;
 		
-		for( Student std : studentList) {
-			System.out.print((index++) + "번 : ");//std에는 for문 반복시 마다 0,1,2,.....인덱스 요소들을 한번씩 저장됨
+		for( Student std : studentList) {//모든 인덱스에 저장 된 값을 불러내는 for문
+			System.out.print((index++) + "번 : ");//std에는 for문 반복시 마다 0,1,2,.....인덱스 요소들을 한번씩 저장됨 
+													// index++은 0번 index부터 마지막 index까지 한번씩 모두 출력
 			System.out.println(std);
 		}
 		
